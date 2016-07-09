@@ -1,0 +1,20 @@
+{
+  "name": "collapsiblecontainers",
+  "version": "0.0.1",
+  "description": "Collaipsble HTML container ",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "bower": "^1.7.9",
+    "gulp-inject": "^4.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marlon Supetran",
+  "license": "ISC"
+}

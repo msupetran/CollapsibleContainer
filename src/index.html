@@ -1,0 +1,24 @@
+<html ng-app="app">
+
+<head>
+    <title>Collapsible Container AngularJS Directive</title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <!-- endinject -->
+</head>
+
+<body ng-controller="AppController">
+   <div ng-repeat="var i in Items">
+       {{ i.name }}
+   </div>
+</body>
+
+<!-- inject:js -->
+<script src="/src/app/app.controller.js"></script>
+<script src="/src/app/app.module.js"></script>
+<script src="/src/app/shared/shared.module.js"></script>
+<script src="/src/app/shared/container/container.controller.js"></script>
+<script src="/src/app/shared/container/container.directive.js"></script>
+<!-- endinject -->
+
+</html>
