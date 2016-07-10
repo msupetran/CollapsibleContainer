@@ -8,15 +8,19 @@
 </head>
 
 <body ng-controller="AppController">
-   <div ng-repeat="var i in Items">
+   <div ng-repeat="i in items">
        {{ i.name }}
    </div>
 </body>
 
+<!-- bower:js -->
+<script src="../bower_components/angular/angular.js"></script>
+<!-- endbower -->
+
 <!-- inject:js -->
-<script src="app/app.controller.js"></script>
 <script src="app/app.module.js"></script>
 <script src="app/shared/shared.module.js"></script>
+<script src="app/app.controller.js"></script>
 <script src="app/shared/container/container.controller.js"></script>
 <script src="app/shared/container/container.directive.js"></script>
 <!-- endinject -->

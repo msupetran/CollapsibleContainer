@@ -1,0 +1,21 @@
+{
+  "name": "collapsiblecontainers",
+  "description": "Collaipsble HTML container",
+  "main": "gulpfile.js",
+  "authors": [
+    "Marlon Supetran"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/msupetran/CollapsibleContainer",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7"
+  }
+}

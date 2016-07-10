@@ -5,7 +5,7 @@
         .module('app.shared')
         .controller('ContainerController', ContainerController);
 
-    ContainerController.$inject('$scope');
+    ContainerController.$inject = ['$scope'];
     function ContainerController($scope) {
         var vm = this;
     }

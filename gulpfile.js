@@ -1,45 +1,56 @@
+
 // Fields
 var gulp = require('gulp');
-var gulpInject = require('gulp-inject');
-var browserSync = require('browser-sync').create();
-var paths = {
-    index: './src/index,html',
-    scripts: './src/**/*.js',
-    styles: './src/**.*.css'
-};
+var config = require('./gulpfile.config');
+var bs = require('browser-sync').create();
+var wd = require('wiredep');
+var $ = require('gulp-load-plugins')({lazy: true});
 
 // Tasks
 gulp.task('inject', inject);
-gulp.task('serve', ['inject'], launch);
+gulp.task('serve', ['inject'], serve);
 gulp.task('watch', ['inject'], reload);
 
 // Methods
 function inject() {
-    var target = gulp.src(paths.index);
-    var sources = gulp.src([
-        paths.scripts,
-        paths.styles
-    ],
-        { read: false }
-    );
-    var options = {
-        ignorePath: 'src',
-        addRootSlash: false
-    };
-
+    var target = gulp.src(config.paths.index);
     return target
-        .pipe(gulpInject(sources, options))
-        .pipe(gulp.dest('./src'));
+        .pipe(getFilesToInject())
+        .pipe(getBowerFilesToInject())
+        .pipe(gulp.dest(config.destination));
 }
-function launch() {
-    browserSync.init({
+function getFilesToInject() {
+    var sources = gulp
+        .src([
+            config.paths.scripts,
+            config.paths.styles
+        ])
+        .pipe($.if(config.jsOrder, $.order(config.jsOrder)));
+    var options = {
+        relative: true
+    };
+    return $.inject(sources, options);
+}
+function getBowerFilesToInject() {
+    var options = {
+        bowerJson: require('./bower.json'),
+        directory: './bower_components/',
+        ignorePath: '../..'
+    };
+    return wd.stream(options);
+}
+function serve() {
+    bs.init({
         server: {
-            baseDir: './src'
+            baseDir: './src',
+            routes: {
+                "/bower_components": "./bower_components"
+            }
         }
     });
 
-    gulp.watch('./src/**', ['watch']);
+    gulp.watch(config. destination + '/**', ['watch']);
 }
 function reload() {
-    browserSync.reload();
+    bs.reload();
 }

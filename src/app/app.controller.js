@@ -5,7 +5,7 @@
         .module('app')
         .controller('AppController', AppController);
 
-    AppController.$inject('$scope');
+    AppController.$inject = ['$scope'];
     function AppController($scope) {
         var vm = this;
         $scope
