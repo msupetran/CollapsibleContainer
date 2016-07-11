@@ -12,7 +12,8 @@
         $scope.items = [
             { name: "Item No. 1", count: 10, isCollapsed: true },
             { name: "Item No. 2", count: 20, isCollapsed: false },
-            { name: "Item No. 3", count: 30, isCollapsed: true }
+            { name: "Item No. 3", count: 30, isCollapsed: true },
+            { name: "Item No. 4", count: 30, isCollapsed: true }
         ];
     }
 })();
