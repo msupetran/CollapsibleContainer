@@ -7,11 +7,8 @@
 
     function CollapsibleDirective() {
         var directive = {
-            restrict: 'E',
-            scope: {
-                
-            }
-        };
+            restrict: 'E'
+        }
         return directive;
     }
 })();
